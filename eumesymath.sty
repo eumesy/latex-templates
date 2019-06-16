@@ -1,5 +1,6 @@
 \usepackage{amsmath,amssymb,mathtools}
 
+% define \mathboldface
 % \newcommand{\mathboldface}[1]{\mbox{\boldmath $#1$}}
 % \newcommand{\mathboldface}[1]{\boldsymbol{#1}}
 \def\useboldmathmathboldface{%
@@ -13,7 +14,12 @@
     }
 \usemathbfmathboldface
 
-\newcommand{\VEC}[1]{\mathboldface{#1}}
+% define \VEC
+\def\usemathboldfacevec{%
+    \newcommand{\VEC}[1]{\mathboldface{##1}}
+    }
+\usemathboldfacevec
+% \newcommand{\VEC}[1]{\mathboldface{#1}}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
