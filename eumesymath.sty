@@ -1,7 +1,17 @@
 \usepackage{amsmath,amssymb,mathtools}
 
-\newcommand{\mathboldface}[1]{\mbox{\boldmath $#1$}}
+% \newcommand{\mathboldface}[1]{\mbox{\boldmath $#1$}}
 % \newcommand{\mathboldface}[1]{\boldsymbol{#1}}
+\def\useboldmathmathboldface{%
+    \newcommand{\mathboldface}[1]{\mbox{\boldmath $##1$}}
+    }
+\def\useboldsymbolmathboldface{%
+    \newcommand{\mathboldface}[1]{\boldsymbol{##1}}
+    }
+\def\usemathbfmathboldface{% e.g., unicode-math w/mathbf=sym option
+    \newcommand{\mathboldface}[1]{\mathbf{##1}}
+    }
+\usemathbfmathboldface
 
 \newcommand{\VEC}[1]{\mathboldface{#1}}
 
