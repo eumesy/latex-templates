@@ -1,0 +1,25 @@
+\documentclass[%
+    fleqn, % equasion, align left
+    unicode, % https://qiita.com/zr_tex8r/items/69e8cc32038ff29f5ac3#xelatex--zxjatype%E3%81%AE%E5%A0%B4%E5%90%88
+]{beamer}
+
+\usepackage{eumesybeamer}
+% load: unicode-math, zxjatype, xeCJK, fontspec
+\usepackage{eumesybeamer-markdown}
+
+% math
+\usepackage{eumesymath}
+% load: amsmath, amssymb, mathtools
+% define macros: VEC; norm, abs; argmax, argmin
+\newcommand{\Dirac}[1]{\ensuremath{\delta}[{#1}]}
+
+% figure
+\usepackage[export]{adjustbox} % load graphicx
+% Make two figures aligned at top: https://tex.stackexchange.com/questions/101858/make-two-figures-aligned-at-top
+
+% table
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{tabularx}
