@@ -6,21 +6,19 @@
 %% unicode-math で math-style, bold-style を定めておけば問題なし?
 \usefonttheme{professionalfonts} % don't change fonts inside beamer
 
-% \usepackage{ccfonts,eulervm}
-
-% \usepackage{fontspec}
-% \usepackage{mathspec}
 \usepackage{zxjatype} % load xeCJK, fontspec
 
-% \setmainfont{Latin Modern Roman}
+%----------------------------------------------
+% serif
+%----------------------------------------------
+\setmainfont{Latin Modern Roman}
 
+%----------------------------------------------
+% sans-serif
+%----------------------------------------------
 % \setsansfont{Arial}
 % \setsansfont{Averia Sans GWF} % 微 手書き風
 % \setsansfont{Andika}
-% \usepackage{libertine}
-% \setsansfont{Linux Biolinum O}[
-%     BoldItalicFont=* Bold Oblique % https://tex.stackexchange.com/questions/432737/italic-in-section-headings-with-linux-biolinum
-% ]
 % \setsansfont{PT_Sans-Web}[%
 %     Path = ./fonts/,
 %     Extension = .ttf,
@@ -40,10 +38,27 @@
     BoldItalicFont = *-BoldItalic,
 ]
 
+%----------------------------------------------
+% serif/sans-serif
+%----------------------------------------------
+% \usepackage{libertine}
+% \setsansfont{Linux Biolinum O}[
+%     BoldItalicFont=* Bold Oblique % https://tex.stackexchange.com/questions/432737/italic-in-section-headings-with-linux-biolinum
+% ]
+
+%----------------------------------------------
+% monospace
+%----------------------------------------------
 \setmonofont{CMU Typewriter Text}
 
+%----------------------------------------------
+% ja: mincho
+%----------------------------------------------
 \setjamainfont{TakaoMincho}
 
+%----------------------------------------------
+% ja: gothic
+%----------------------------------------------
 \setjasansfont[
     % Scale=0.90, % w/Linux Biolium O
     Scale=0.90, % w/SourceSansPro
@@ -55,6 +70,9 @@
 % \setjasansfont{Ume Gothic} % N/A
 % \setjasansfont{Monapo}
 
+%----------------------------------------------
+% math
+%----------------------------------------------
 \usepackage[%
     math-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic); http://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/unicode-math/unicode-math.pdf, 5.1
     bold-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic)
@@ -220,4 +238,3 @@
     \setlength\abovedisplayshortskip{\abovedisplayskip}
     \setlength\belowdisplayshortskip{\belowdisplayskip}
 }
-
