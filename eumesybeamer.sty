@@ -201,12 +201,12 @@
 }
 %%% test size
 \setbeamertemplate{itemize/enumerate body begin}{\normalsize}
-\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\small}
 
 % https://tex.stackexchange.com/questions/109577/globally-setting-the-separation-length-for-subitems-in-beamer
 \makeatletter
 \g@addto@macro\@listi{\itemsep2pt }
-\g@addto@macro\@listii{\itemsep2pt }
+\g@addto@macro\@listii{\itemsep1pt }
 \makeatletter
 
 % before/after itemize
@@ -218,7 +218,7 @@
 % \setlength{\partopsep}{0pt}
 
 %----------------------------------------------
-% equation
+% math equation
 %----------------------------------------------
 
 %% indent
@@ -232,8 +232,8 @@
 
 %% display 数式の前後の余白
 \AtBeginDocument{
-    \setlength\abovedisplayskip{0pt}
-    % \setlength\abovedisplayskip{5pt plus 2pt minus 3pt}
+    % \setlength\abovedisplayskip{0pt}
+    \setlength\abovedisplayskip{5pt plus 2pt minus 3pt}
     \setlength\belowdisplayskip{4pt plus 2pt minus 3pt}
     \setlength\abovedisplayshortskip{\abovedisplayskip}
     \setlength\belowdisplayshortskip{\belowdisplayskip}
