@@ -1,0 +1,223 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% font
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usefonttheme[onlymath]{serif}
+%% unicode-math で math-style, bold-style を定めておけば問題なし?
+\usefonttheme{professionalfonts} % don't change fonts inside beamer
+
+% \usepackage{ccfonts,eulervm}
+
+% \usepackage{fontspec}
+% \usepackage{mathspec}
+\usepackage{zxjatype} % load xeCJK, fontspec
+
+% \setmainfont{Latin Modern Roman}
+
+% \setsansfont{Arial}
+% \setsansfont{Averia Sans GWF} % 微 手書き風
+% \setsansfont{Andika}
+% \usepackage{libertine}
+% \setsansfont{Linux Biolinum O}[
+%     BoldItalicFont=* Bold Oblique % https://tex.stackexchange.com/questions/432737/italic-in-section-headings-with-linux-biolinum
+% ]
+% \setsansfont{PT_Sans-Web}[%
+%     Path = ./fonts/,
+%     Extension = .ttf,
+%     UprightFont = *-Regular,
+%     ItalicFont = *-Italic,
+%     BoldFont = *-Bold,
+%     BoldItalicFont = *-BoldItalic,
+% ]
+\setsansfont{SourceSansPro}[%
+    Path = ./fonts/,
+    Extension = .ttf,
+    % UprightFont = *-Light,
+    % ItalicFont = *-LightItalic,
+    UprightFont = *-Regular,
+    ItalicFont = *-Italic,
+    BoldFont = *-Bold,
+    BoldItalicFont = *-BoldItalic,
+]
+
+\setmonofont{CMU Typewriter Text}
+
+\setjamainfont{TakaoMincho}
+
+\setjasansfont[
+    % Scale=0.90, % w/Linux Biolium O
+    Scale=0.90, % w/SourceSansPro
+    % UprightFont = *-Light,
+]{Noto Sans CJK JP} % bold (no italics)
+% \setjasansfont{Ricty Diminished Discord} % bold, bold italic
+% \setjasansfont{MigMix 1P} % bold
+% \setjasansfont{Sawarabi Gothic} % N/A
+% \setjasansfont{Ume Gothic} % N/A
+% \setjasansfont{Monapo}
+
+\usepackage[%
+    math-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic); http://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/unicode-math/unicode-math.pdf, 5.1
+    bold-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic)
+    mathrm=sym,
+    mathbf=sym, % \mathbf behave as if it were \symbf en masse, http://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/unicode-math/unicode-math.pdf, 4.4.2
+    mathit=sym,
+    mathsf=sym,
+    mathtt=sym,
+]{unicode-math}
+% \setmathfont{Asana Math}
+% \setmathfont{TeX Gyre Pagella Math}
+\setmathfont[Path = ./fonts/]{Cambria Math.ttf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% font 2 / logical structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% emph: bold + italic
+% ref. http://tex.stackexchange.com/questions/227639/redefine-emph-to-be-both-bold-and-italic
+\let\emph\relax % there's no \RedeclareTextFontCommand
+% \DeclareTextFontCommand{\emph}{\bfseries\em}
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+\newcommand{\framesection}[1]{\flushleft{\color{blue!60}\normalsize\textbf{#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% color
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usecolortheme{rose} % to colorize block environment
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------
+% titlepage
+%----------------------------------------------
+\setbeamerfont{title}{series=\bfseries,size=\LARGE}
+\setbeamercolor{title}{fg=black}
+
+%----------------------------------------------
+% table of contents
+%----------------------------------------------
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+\AtBeginSubsection[]{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+%----------------------------------------------
+% notmral page
+%----------------------------------------------
+%% title
+\setbeamerfont{frametitle}{series=\bfseries,size=\Large}
+\setbeamertemplate{frametitle}[default][left,leftskip=1pt]
+% \setbeamercolor{frametitle}{fg=black,bg=white}
+% https://tex.stackexchange.com/questions/343517/beamer-full-width-hrule-below-frame-title
+% \setbeamertemplate{frametitle}{%
+%     \usebeamerfont{frametitle}\insertframetitle%
+%     \vphantom{g}
+%     \par\hspace*{-\dimexpr0.5\paperwidth-0.5\textwidth}\color{lightgray}\rule[0.5\baselineskip]{\paperwidth}{1.5pt}
+%     \par\vspace*{-\baselineskip}% reduce vertical space after rule
+% }
+\setbeamertemplate{frametitle}{%
+    \usebeamerfont{frametitle}\insertframetitle%
+    \vphantom{g}% To avoid fluctuations per frame
+    %\hrule% Uncomment to see desired effect, without a full-width hrule
+    \par\hspace*{-\dimexpr0.5\paperwidth-0.5\textwidth}\color{lightgray}\rule[0.5\baselineskip]{\paperwidth}{0.4pt}
+    \par\vspace*{-\baselineskip}% <-- reduce vertical space after rule
+}
+
+%% body
+%%% top margin ref. https://github.com/matze/mtheme/issues/17
+% \addtobeamertemplate{frametitle}{}{\vspace{-0.8em}}
+\setbeamersize{
+    text margin left=1em,
+    text margin right=1em
+}
+%% footer
+\setbeamertemplate{navigation symbols}{}% remove navigation symbols
+\setbeamertemplate{footline}[frame number]
+
+%----------------------------------------------
+% list
+%----------------------------------------------
+%%% size
+%%% * Beamer - controlling the size of custom bullets - TeX - LaTeX Stack Exchange https://tex.stackexchange.com/questions/446524/beamer-controlling-the-size-of-custom-bullets
+%%% * fontsize - How to get larger item symbols for some lists in a Beamer presentation? - TeX - LaTeX Stack Exchange https://tex.stackexchange.com/questions/23034/how-to-get-larger-item-symbols-for-some-lists-in-a-beamer-presentation
+%%% * LaTeX beamer: way to change the bullet indentation? - Stack Overflow https://stackoverflow.com/questions/2611276/latex-beamer-way-to-change-the-bullet-indentation
+
+\setbeamertemplate{itemize item}{\Large\raise0.5pt\hbox{$\bullet$}}
+\setbeamertemplate{itemize subitem}{\Large\raise0pt\hbox{$\circ$}}
+\setbeamertemplate{itemize subsubitem}{large\raise0pt\hbox{--}}
+
+% \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+% \addtolength{\leftmargini}{\labelsep}
+% \addtolength{\leftmargini}{0.5em}
+% \settowidth{\leftmarginii}{\usebeamertemplate{itemize subitem}}
+% \addtolength{\leftmarginii}{\labelsep}
+
+%%% left indentation of itemize 0
+%%% ref. https://groups.google.com/forum/#!topic/comp.text.tex/qCQ7-iCSADA
+\setlength{\leftmargini}{1.5em}
+\setlength{\leftmarginii}{1em} % 2段ネスト
+\setlength{\leftmarginiii}{1em} % 3段ネスト
+%%% bullet style
+%%% ref. https://tex.stackexchange.com/questions/87133/changing-the-color-of-itemize-item-in-beamer
+\setbeamertemplate{itemize item}{%
+    \color{black!40}\huge\raisebox{-1.5pt}{\textbullet}
+}
+\setbeamertemplate{itemize subitem}{%
+    \color{black!40}\Large\raisebox{-1.5pt}{$\circ$}
+}
+\setbeamertemplate{itemize subsubitem}{%
+    \color{black!40}\large\raisebox{-0.5pt}{--}
+}
+%%% test size
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+
+% https://tex.stackexchange.com/questions/109577/globally-setting-the-separation-length-for-subitems-in-beamer
+\makeatletter
+\g@addto@macro\@listi{\itemsep2pt }
+\g@addto@macro\@listii{\itemsep2pt }
+\makeatletter
+
+% before/after itemize
+% \usepackage{enumitem} % markdown package と相性悪そう
+% \setlist[itemize]{topsep=0pt}
+% \setlength{\topsep}{0pt}
+% \setlength{\parsep}{0pt}
+% \setlength{\parskip}{0pt}
+% \setlength{\partopsep}{0pt}
+
+%----------------------------------------------
+% equation
+%----------------------------------------------
+
+%% indent
+\setlength{\mathindent}{1.0em}
+
+%% labeling
+%% https://tex.stackexchange.com/questions/100139/prevent-equation-labeling-to-change-sizes
+\makeatletter
+\def\tagform@#1{\maketag@@@{\color{lightgray}\scriptsize(#1)\@@italiccorr}}
+\makeatother
+
+%% display 数式の前後の余白
+\AtBeginDocument{
+    \setlength\abovedisplayskip{0pt}
+    % \setlength\abovedisplayskip{5pt plus 2pt minus 3pt}
+    \setlength\belowdisplayskip{4pt plus 2pt minus 3pt}
+    \setlength\abovedisplayshortskip{\abovedisplayskip}
+    \setlength\belowdisplayshortskip{\belowdisplayskip}
+}
+
