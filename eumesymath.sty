@@ -1,16 +1,15 @@
 \usepackage{amsmath,amssymb,mathtools}
 
 % define \mathboldface
-% \newcommand{\mathboldface}[1]{\mbox{\boldmath $#1$}}
-% \newcommand{\mathboldface}[1]{\boldsymbol{#1}}
+\newcommand{\mathboldface}{}
 \def\useboldmathmathboldface{%
-    \newcommand{\mathboldface}[1]{\mbox{\boldmath $##1$}}
+    \renewcommand{\mathboldface}[1]{\mbox{\boldmath $##1$}}
     }
 \def\useboldsymbolmathboldface{%
-    \newcommand{\mathboldface}[1]{\boldsymbol{##1}}
+    \renewcommand{\mathboldface}[1]{\boldsymbol{##1}}
     }
 \def\usemathbfmathboldface{% e.g., unicode-math w/mathbf=sym option
-    \newcommand{\mathboldface}[1]{\mathbf{##1}}
+    \renewcommand{\mathboldface}[1]{\mathbf{##1}}
     }
 \usemathbfmathboldface
 

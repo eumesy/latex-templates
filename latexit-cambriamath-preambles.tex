@@ -1,0 +1,15 @@
+\documentclass[xelatex,9pt]{bxjsarticle}
+\usepackage[usenames]{color} %used for font color
+\usepackage{amsmath,amssymb,mathtools} %maths
+
+\usepackage{zxjatype} % load xeCJK, fontspec
+\usepackage[%
+    math-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic); http://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/unicode-math/unicode-math.pdf, 5.1
+    bold-style=ISO, % (lowercase Latin, uppercase Latin, lowercase Greek, uppercase Greek) = (Italic, Italic, Italic, Italic)
+    mathrm=sym,
+    mathbf=sym, % \mathbf behave as if it were \symbf en masse, http://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/unicode-math/unicode-math.pdf, 4.4.2
+    mathit=sym,
+    mathsf=sym,
+    mathtt=sym,
+]{unicode-math}
+\setmathfont[Path = ${HOME}/Library/Fonts/]{Cambria Math.ttf}
