@@ -37,4 +37,9 @@
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
 
-\newcommand{\defeq}{:=}
+% :=
+% ---
+% when not using txfonts or pxfonts, use \coloneq with mathtools
+% ref. https://ctan.org/pkg/mathtools
+% ---
+% \newcommand{\defeq}{:=}
