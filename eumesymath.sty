@@ -23,8 +23,18 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
+% define \abs and \norm with mathtools
 % ref. https://tex.stackexchange.com/questions/43008/absolute-value-symbols
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+% Swap the definition of \abs* and \norm*,
+% so that \abs and \norm resizes the size of the brackets,
+% and the starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 \newcommand{\defeq}{:=}
