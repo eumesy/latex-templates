@@ -99,6 +99,18 @@
 \newcommand{\framesection}[1]{\flushleft{\color{blue!60}\normalsize\textbf{#1}}}
 
 
+% uline
+\usepackage{ulem}
+% emphが下線に書き変わる問題解消 ref. http://tex.stackexchange.com/questions/104058/getting-emph-back-to-normal-after-loading-ulem
+\normalem
+% 波線カスタマイズ
+% http://oversleptabit.com/?p=425
+\font\ninely=lasy9
+\def\uwaveX{\bgroup \markoverwith{\lower5\p@\hbox{\color{magenta}\ninely
+      \kern-0.001\p@\char58\kern-0.001\p@}}\ULon} %
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % color
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
