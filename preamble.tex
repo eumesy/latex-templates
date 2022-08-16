@@ -1,2 +1,18 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,multirow}
+
+%--------------------------------
+% figures, tables
+%--------------------------------
+\usepackage{subcaption} % for subfigures, subtables
+
+%--------------------------------
+% tables
+%--------------------------------
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% line break inside a table cell; \makecell{foo \\ bar}
+% h/t https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell
+\usepackage{makecell}
+\renewcommand{\cellalign}{cl} %\makecell config.; vertical alignment: center, horizontal alignment: left
